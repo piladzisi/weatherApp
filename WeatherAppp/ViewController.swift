@@ -13,16 +13,9 @@ class ViewController: UIViewController {
     
     let apiKey = "5d3c281f8b7ece9515e8f1dac20c6b1b"
     let baseUrl = "http://api.openweathermap.org/data/2.5/weather"
-    //var weather: WeatherReport = WeatherReport(city: "Paris", breakdown: Main(temp: 250), conditions: [WeatherCondition(description: "foggy", id: 800)])
     
     @IBAction func didTapGo() {
         getWeather()
-//        
-//        let deadline = DispatchTime.now() + .seconds(3)
-//        DispatchQueue.main.asyncAfter(deadline: deadline) {
-//            let weather = weatherReport
-//            self.performSegue(withIdentifier: "segue.Main.mainToWeather", sender: weather)
-//        }
     }
     
     func getWeather(){
@@ -52,10 +45,6 @@ class ViewController: UIViewController {
         }
         dataTask.resume()
     }
-    
-//    @IBSegueAction func showWeatherVC(coder: NSCoder) -> WeatherVC? {
-//        return WeatherVC(weather: weather, coder: coder)
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
