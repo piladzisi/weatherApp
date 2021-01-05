@@ -10,12 +10,13 @@ import UIKit
 class WeatherVC: UIViewController {
 
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var weatherImage: UIImage!
+    @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var degreesLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     
-    private let weather: String?
+    private let weather: Weather
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,7 +25,7 @@ class WeatherVC: UIViewController {
       fatalError("init(coder:) is not implemented")
     }
     
-    init?(weather: String?, coder: NSCoder) {
+    init?(weather: Weather, coder: NSCoder) {
         self.weather = weather
         super.init(coder: coder)
     }

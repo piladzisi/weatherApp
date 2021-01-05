@@ -47,7 +47,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapGo" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y1t-BM-VwK"/>
-                                    <segue destination="e98-TM-ZPV" kind="show" destinationCreationSelector="showWeatherVCWithCoder:" id="5wY-xf-Su9"/>
+                                    <segue destination="e98-TM-ZPV" kind="show" destinationCreationSelector="showWeatherVCWithCoder:" id="xq6-aN-wOG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -150,6 +150,7 @@
                         <outlet property="cityLabel" destination="BIk-aS-Hhh" id="DB1-nl-BgC"/>
                         <outlet property="degreesLabel" destination="3nu-C2-gum" id="iLl-gD-RbA"/>
                         <outlet property="descriptionLabel" destination="DKb-bF-1Qd" id="wHy-Sf-keb"/>
+                        <outlet property="weatherImage" destination="EXn-zt-woy" id="4DL-Xt-G5Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bih-Iu-VO8" sceneMemberID="firstResponder"/>
