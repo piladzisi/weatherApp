@@ -47,7 +47,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapGo" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y1t-BM-VwK"/>
-                                    <segue destination="e98-TM-ZPV" kind="show" destinationCreationSelector="showWeatherVCWithCoder:" id="xq6-aN-wOG"/>
+                                    <segue destination="e98-TM-ZPV" kind="show" identifier="segue.Main.mainToWeather" id="xq6-aN-wOG"/>
                                 </connections>
                             </button>
                         </subviews>

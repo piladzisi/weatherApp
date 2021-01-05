@@ -14,20 +14,22 @@ class WeatherVC: UIViewController {
     @IBOutlet weak var degreesLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    
-    private let weather: Weather
+    var weather: WeatherReport?
+//    
+//    required init?(coder: NSCoder) {
+//      fatalError("init(coder:) is not implemented")
+//    }
+//    
+//    init?(weather: WeatherReport, coder: NSCoder) {
+//        self.weather = weather
+//        super.init(coder: coder)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let weather = weather else { return }
+        cityLabel.text = weather.city
+        degreesLabel.text = String(weather.breakdown.temp)
+        
     }
-   
-    required init?(coder: NSCoder) {
-      fatalError("init(coder:) is not implemented")
-    }
-    
-    init?(weather: Weather, coder: NSCoder) {
-        self.weather = weather
-        super.init(coder: coder)
-    }
-
 }
