@@ -47,7 +47,6 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapGo" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y1t-BM-VwK"/>
-                                    <segue destination="e98-TM-ZPV" kind="show" identifier="segue.Main.mainToWeather" id="xq6-aN-wOG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -68,6 +67,7 @@
                     </view>
                     <connections>
                         <outlet property="cityTextField" destination="U4R-p5-UzJ" id="hdP-pf-yLG"/>
+                        <segue destination="e98-TM-ZPV" kind="show" identifier="segue.Main.mainToWeather" id="pms-bx-0CM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

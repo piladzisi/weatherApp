@@ -16,24 +16,23 @@ class ViewController: UIViewController {
     //var weather: WeatherReport = WeatherReport(city: "Paris", breakdown: Main(temp: 250), conditions: [WeatherCondition(description: "foggy", id: 800)])
     
     @IBAction func didTapGo() {
-        guard let weatherReport = getWeather() else { return }
-        
-        let deadline = DispatchTime.now() + .seconds(3)
-        DispatchQueue.main.asyncAfter(deadline: deadline) {
-            let weather = weatherReport
-            self.performSegue(withIdentifier: "segue.Main.mainToWeather", sender: weather)
-        }
+        getWeather()
+//        
+//        let deadline = DispatchTime.now() + .seconds(3)
+//        DispatchQueue.main.asyncAfter(deadline: deadline) {
+//            let weather = weatherReport
+//            self.performSegue(withIdentifier: "segue.Main.mainToWeather", sender: weather)
+//        }
     }
     
-    func getWeather() -> WeatherReport? {
-        var weatherReport: WeatherReport?
+    func getWeather(){
         
         var components = URLComponents(string: baseUrl)
         let cityQuery = URLQueryItem(name: "q", value: cityTextField.text)
         let appIdQuery = URLQueryItem(name: "appid", value: apiKey)
         components?.queryItems = [cityQuery, appIdQuery]
         
-        guard let url = components?.url else { return nil }
+        guard let url = components?.url else { return }
         
         let session = URLSession.shared
         let dataTask = session.dataTask(with: url) { (data, _, error) in
@@ -43,14 +42,15 @@ class ViewController: UIViewController {
                 do {
                     let weather = try JSONDecoder().decode(WeatherReport.self, from: data)
                     print(weather)
-                    weatherReport = weather
+                    DispatchQueue.main.async() {
+                        self.performSegue(withIdentifier: "segue.Main.mainToWeather", sender: weather)
+                    }
                 } catch {
                     print(error)
                 }
             }
         }
         dataTask.resume()
-        return weatherReport
     }
     
 //    @IBSegueAction func showWeatherVC(coder: NSCoder) -> WeatherVC? {
