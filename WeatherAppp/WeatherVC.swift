@@ -20,8 +20,9 @@ class WeatherVC: UIViewController {
         super.viewDidLoad()
         guard let weather = weather else { return }
         cityLabel.text = weather.city
-        degreesLabel.text = String(weather.breakdown.temp) + "˚"
+        degreesLabel.text = String(format: "%.0f", weather.breakdown.temp) + "˚"
         descriptionLabel.text = weather.conditions.first?.description.capitalized
+        weatherImage.image = weather.conditionImage
         
     }
 }

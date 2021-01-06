@@ -22,7 +22,8 @@ class ViewController: UIViewController {
         var components = URLComponents(string: baseUrl)
         let cityQuery = URLQueryItem(name: "q", value: cityTextField.text)
         let appIdQuery = URLQueryItem(name: "appid", value: apiKey)
-        components?.queryItems = [cityQuery, appIdQuery]
+        let units = URLQueryItem(name: "units", value: "metric")
+        components?.queryItems = [cityQuery, appIdQuery, units]
         
         guard let url = components?.url else { return }
         
@@ -51,7 +52,9 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func returnToMainVC(_ sender: UIStoryboardSegue) {}
+    @IBAction func returnToMainVC(_ sender: UIStoryboardSegue) {
+        cityTextField.text = ""
+    }
     
 }
 
