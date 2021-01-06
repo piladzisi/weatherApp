@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     }
     
     func getWeather(){
-        
         var components = URLComponents(string: baseUrl)
         let cityQuery = URLQueryItem(name: "q", value: cityTextField.text)
         let appIdQuery = URLQueryItem(name: "appid", value: apiKey)
@@ -34,7 +33,6 @@ class ViewController: UIViewController {
             } else if let data = data {
                 do {
                     let weather = try JSONDecoder().decode(WeatherReport.self, from: data)
-                    print(weather)
                     DispatchQueue.main.async() {
                         self.performSegue(withIdentifier: "segue.Main.mainToWeather", sender: weather)
                     }

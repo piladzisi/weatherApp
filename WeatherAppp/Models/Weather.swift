@@ -7,7 +7,7 @@
 
 struct WeatherReport: Codable {
     let city: String
-    let breakdown: Main
+    let breakdown: WeatherBreakdown
     let conditions: [WeatherCondition]
     
     private enum CodingKeys: String, CodingKey {
@@ -15,13 +15,4 @@ struct WeatherReport: Codable {
         case breakdown = "main"
         case conditions = "weather"
     }
-}
-
-struct Main: Codable {
-    let temp: Double
-}
-
-struct WeatherCondition: Codable {
-    let description: String
-    let id: Int
 }
